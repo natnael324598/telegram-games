@@ -217,3 +217,14 @@ bot.on("text", (ctx) => {
 });
 
 bot.launch();
+
+const port = process.env.PORT || 3000;
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.write("Bot is running!");
+    res.end();
+  })
+  .listen(port, () => {
+    console.log(`Dummy server listening on port ${port}`);
+  });
